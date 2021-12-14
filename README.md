@@ -129,8 +129,8 @@ SSH into the control node and follow the steps below:
  
  - **To confirm the success of the installations**:
      - Go to the Kibana URL, this will be the Public IP address of the ELK server appended with :5601/app/kibana appended at the end.
-     - Example: http://20.63.76.153:5601/app/kibana
-     - For Filebeat: On the Kibana webpage go to Logs > Add log data > System logs > Module Status to confirm that the installation was successful.
-     - For Metricbeat: On the Kibana webpage go to Metrics > Add Metric Data > Docker Metrics > Module Status to confirm that the installation was successful.
+       - Example: http://20.63.76.153:5601/app/kibana
+     - **For Filebeat:** On the Kibana webpage go to Logs > Add log data > System logs > Module Status to confirm that the installation was successful.
+     - **For Metricbeat:** On the Kibana webpage go to Metrics > Add Metric Data > Docker Metrics > Module Status to confirm that the installation was successful.
 
 _As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
