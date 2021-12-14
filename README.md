@@ -113,7 +113,6 @@ SSH into the control node and follow the steps below:
            - This copies the Filebeat config file we configured and copies it to the webservers so it can correctly point to the Elk Server. 
      - Run the Ansible Filebeat Playbook: filebeat-playbook.yml
          - This will download and install Filebeat, set it up, and ensure it starts on reboot. 
-      - Navigate to Kibana on the ELK Server and go to Logs > Add log data > System logs > Module Status to confirm that the installation was successful.
 
 - **For MetricBeat:**
      - Copy the Ansible Metricbeat playbook and configuration file to /etc/ansible/ folder.
@@ -127,13 +126,19 @@ SSH into the control node and follow the steps below:
            - This copies the MetricBeats config file we configured and copies it to the webservers so it can correctly point to the Elk Server. 
      - Run the Ansible Metricbeat Playbook: metricbeat-playbook.yml
          - This will download and install Metricbeat, set it up, and ensure it starts on reboot. 
-      - Navigate to Kibana on the ELK Server and go to Metrics > Add Metric Data > Docker Metrics > Module Status to confirm that the installation was successful.
-         - The URL to navigate to Kibana will be the Public IP with :5601/app/kibana appended at the end. 
+
+- **To Confirm the installation of Filebeat and Metricbeat were a success**: 
+      - The Kibana URL is will be the Public IP with :5601/app/kibana appended at the end. 
          - Example: http://20.63.76.153:5601/app/kibana
+         
+      - **For Filebeat**: On the Kibana webpage go to Logs > Add log data > System logs > Module Status to confirm that the installation was successful.
+      - **For MetricBeat**: On the Kibana webpage go to Metrics > Add Metric Data > Docker Metrics > Module Status to confirm that the installation was successful.
          
 - Copy the _____ file to _____.
 - Update the _____ file to include...
 - Run the playbook, and navigate to ____ to check that the installation worked as expected.
+- 
+- - Navigate to Kibana on the ELK Server and go to Logs > Add log data > System logs > Module Status to confirm that the installation was successful.
 
 _TODO: Answer the following questions to fill in the blanks:_
 - _Which file is the playbook? Where do you copy it?_
