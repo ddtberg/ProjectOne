@@ -125,24 +125,12 @@ SSH into the control node and follow the steps below:
          - Confirm that the playbook copies metricbeat-config.yml and places it in /etc/metricbeat/ and renames the file to metricbeat.yml
            - This copies the MetricBeats config file we configured and copies it to the webservers so it can correctly point to the Elk Server. 
      - Run the Ansible Metricbeat Playbook: metricbeat-playbook.yml
-         - This will download and install Metricbeat, set it up, and ensure it starts on reboot. 
-
-- **To Confirm the installation of Filebeat and Metricbeat were a success**: 
-      - The Kibana URL is will be the Public IP with :5601/app/kibana appended at the end. 
-         - Example: http://20.63.76.153:5601/app/kibana
-         
-      - **For Filebeat**: On the Kibana webpage go to Logs > Add log data > System logs > Module Status to confirm that the installation was successful.
-      - **For MetricBeat**: On the Kibana webpage go to Metrics > Add Metric Data > Docker Metrics > Module Status to confirm that the installation was successful.
-         
-- Copy the _____ file to _____.
-- Update the _____ file to include...
-- Run the playbook, and navigate to ____ to check that the installation worked as expected.
-- 
-- - Navigate to Kibana on the ELK Server and go to Logs > Add log data > System logs > Module Status to confirm that the installation was successful.
-
-_TODO: Answer the following questions to fill in the blanks:_
-- _Which file is the playbook? Where do you copy it?_
-- _Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?_
-- _Which URL do you navigate to in order to check that the ELK server is running?
+         - This will download and install Metricbeat, set it up, and ensure it starts on reboot.  
+ 
+ - **To confirm the success of the installations**:
+     - Go to the Kibana URL, this will be the Public IP address of the ELK server appended with :5601/app/kibana appended at the end.
+     - Example: http://20.63.76.153:5601/app/kibana
+     - For Filebeat: On the Kibana webpage go to Logs > Add log data > System logs > Module Status to confirm that the installation was successful.
+     - For Metricbeat: On the Kibana webpage go to Metrics > Add Metric Data > Docker Metrics > Module Status to confirm that the installation was successful.
 
 _As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
