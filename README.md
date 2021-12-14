@@ -63,10 +63,10 @@ A summary of the access policies in place can be found in the table below.
 
 Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because Ansible allows for quick deployment and configuration of multiple apps across multiple VMs. This is possible through the usage of a playbook, which allows you to target the specific machines to install specific software with a specific configuration. 
 
-The playbook implements the following tasks:
-- _TODO: In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc._
-- ...
-- ...
+The Playbook implements the following tasks: 
+- Installs Docker.io, configures said Docker.io, and establishes the published ports for the container. 
+- Installs and configures pip3.
+- Increases virtual memory and ensures it has sustains that level of ram on restart. 
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
@@ -90,6 +90,32 @@ These Beats allow us to collect the following information from each machine:
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below:
+
+- In general: 
+    - Update the Hosts file in the Ansible directory to include [webservers] and [ELK]. Also include the local IP addresses under the heading. 
+    - Update the ansible.cfg to include your remote user name that you will use to access said servers. 
+
+- For ELK VM Installation and Configuration: 
+    - Copy the Ansible ELK installationation and configuration file to the /etc/ansible/ folder. 
+    - 
+    - Run the playbook with the following command: ansible-playbook install-elk.yml
+    - As stated previously, this will install the docker and configure it, and other necessary configurations.
+
+- For Filebeat: 
+     - Copy the Ansible Filebeat playbook and configuration file to /etc/ansible/ folder.
+     - Edit the Filebeat configuration file to point to the VM that hosts the ELK server. 
+     - Run the Ansible Filebeat Playbook
+         - This will download and install Filebeat, set it up, and ensure it starts on reboot. 
+      - Navigate to Kibana on the ELK Server and go to Logs > Add log data > System logs > Module Status to confirm that the installation was successful.
+
+- For MetricBeat:
+     - Copy the Ansible Metricbeat playbook and configuration file to /etc/ansible/ folder.
+     - Edit the Metricbeat configuration file to point to the VM that hosts the ELK server. 
+     - Run the Ansible Metricbeat Playbook
+         - This will download and install Metricbeat, set it up, and ensure it starts on reboot. 
+      - Navigate to Kibana on the ELK Server and go to Metrics > Add Metric Data > Docker Metrics > Module Status to confirm that the installation was successful.
+
+         
 - Copy the _____ file to _____.
 - Update the _____ file to include...
 - Run the playbook, and navigate to ____ to check that the installation worked as expected.
