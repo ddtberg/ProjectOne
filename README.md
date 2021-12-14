@@ -91,30 +91,45 @@ In order to use the playbook, you will need to have an Ansible control node alre
 
 SSH into the control node and follow the steps below:
 
-- In general: 
+- **In general:** 
     - Update the Hosts file in the Ansible directory to include [webservers] and [ELK]. Also include the local IP addresses under the heading. 
     - Update the ansible.cfg to include your remote user name that you will use to access said servers. 
 
-- For ELK VM Installation and Configuration: 
+- **For ELK VM Installation and Configuration:**
     - Copy the Ansible ELK installationation and configuration file to the /etc/ansible/ folder. 
     - 
     - Run the playbook with the following command: ansible-playbook install-elk.yml
     - As stated previously, this will install the docker and configure it, and other necessary configurations.
 
-- For Filebeat: 
+- **For Filebeat:**
      - Copy the Ansible Filebeat playbook and configuration file to /etc/ansible/ folder.
      - Edit the Filebeat configuration file to point to the VM that hosts the ELK server. 
-     - Run the Ansible Filebeat Playbook
+     - Edit the Filebeat Playbook and confirm it has the following: 
+         - Hosts: webservers 
+           - This will ensure that Filebeat is installed on the webservers listed in the Host file
+         - curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.4.0-amd64.deb
+           - This will ensure it is downloading the correct version when it installs Filebeat on the system. 
+         - Confirm that the playbook copies filebeat-config.yml and places it in /etc/filebeat/ and renames the file to filebeat.yml
+           - This copies the Filebeat config file we configured and copies it to the webservers so it can correctly point to the Elk Server. 
+     - Run the Ansible Filebeat Playbook: filebeat-playbook.yml
          - This will download and install Filebeat, set it up, and ensure it starts on reboot. 
       - Navigate to Kibana on the ELK Server and go to Logs > Add log data > System logs > Module Status to confirm that the installation was successful.
 
-- For MetricBeat:
+- **For MetricBeat:**
      - Copy the Ansible Metricbeat playbook and configuration file to /etc/ansible/ folder.
-     - Edit the Metricbeat configuration file to point to the VM that hosts the ELK server. 
-     - Run the Ansible Metricbeat Playbook
+     - Edit the Metricbeat configuration file to point to the VM that hosts the ELK server.
+     - Edit the Metricbeat Playbook and confirm it has the following: 
+         - Hosts: webservers 
+           - This will ensure that metricbeat is installed on the webservers listed in the Host file
+         - curl -L -O https://artifacts.elastic.co/downloads/beats/metricbeat/metricbeat-7.4.0-amd64.deb
+           - This will ensure it is downloading the correct version when it installs metricbeat on the system. 
+         - Confirm that the playbook copies metricbeat-config.yml and places it in /etc/metricbeat/ and renames the file to metricbeat.yml
+           - This copies the MetricBeats config file we configured and copies it to the webservers so it can correctly point to the Elk Server. 
+     - Run the Ansible Metricbeat Playbook: metricbeat-playbook.yml
          - This will download and install Metricbeat, set it up, and ensure it starts on reboot. 
       - Navigate to Kibana on the ELK Server and go to Metrics > Add Metric Data > Docker Metrics > Module Status to confirm that the installation was successful.
-
+         - The URL to navigate to Kibana will be the Public IP with :5601/app/kibana appended at the end. 
+         - Example: http://20.63.76.153:5601/app/kibana
          
 - Copy the _____ file to _____.
 - Update the _____ file to include...
