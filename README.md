@@ -134,5 +134,3 @@ SSH into the control node and follow the steps below:
        - Example: http://20.63.76.153:5601/app/kibana
      - **For Filebeat:** On the Kibana webpage go to Logs > Add log data > System logs > Module Status to confirm that the installation was successful.
      - **For Metricbeat:** On the Kibana webpage go to Metrics > Add Metric Data > Docker Metrics > Module Status to confirm that the installation was successful.
-
-_As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
