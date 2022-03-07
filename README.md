@@ -1,7 +1,5 @@
 ## Automated ELK Stack Deployment
 
-Project Description:
-
 The files in this repository were used to configure the network depicted below.
 
 ![Network Diagram](https://github.com/ddtberg/ProjectOne/blob/main/Diagrams/Diagram.png)
