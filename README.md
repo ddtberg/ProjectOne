@@ -99,7 +99,6 @@ SSH into the control node and follow the steps below:
 
 - **For ELK VM Installation and Configuration:**
     - Copy the Ansible ELK installationation and configuration file to the /etc/ansible/ folder. 
-    - 
     - Run the playbook with the following command: ansible-playbook install-elk.yml
     - As stated previously, this will install the docker and configure it, and other necessary configurations.
 
